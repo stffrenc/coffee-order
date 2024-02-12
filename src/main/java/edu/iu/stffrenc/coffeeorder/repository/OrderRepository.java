@@ -1,6 +1,5 @@
 package edu.iu.stffrenc.coffeeorder.repository;
 
-import edu.iu.habahram.coffeeorder.model.*;
 import edu.iu.stffrenc.coffeeorder.model.*;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +10,12 @@ public class OrderRepository {
         switch (order.beverage().toLowerCase()) {
             case "dark roast":
                 beverage = new DarkRoast();
+                break;
+            case "house blend":
+                beverage = new HouseBlend();
+                break;
+            case "espresso":
+                beverage = new Espresso();
                 break;
         }
         if (beverage == null) {
@@ -23,6 +28,12 @@ public class OrderRepository {
                    break;
                 case "mocha":
                     beverage = new Mocha(beverage);
+                    break;
+                case "soy":
+                    beverage = new Soy(beverage);
+                    break;
+                case "whip":
+                    beverage = new Whip(beverage);
                     break;
                 default:
                     throw new Exception("Condiment type '%s' is not valid".formatted(condiment));
