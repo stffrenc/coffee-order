@@ -1,6 +1,7 @@
-package edu.iu.habahram.coffeeorder.repository;
+package edu.iu.stffrenc.coffeeorder.repository;
 
 import edu.iu.habahram.coffeeorder.model.*;
+import edu.iu.stffrenc.coffeeorder.model.*;
 import org.springframework.stereotype.Repository;
 
 @Repository

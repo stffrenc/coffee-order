@@ -1,4 +1,4 @@
-package edu.iu.habahram.coffeeorder.model;
+package edu.iu.stffrenc.coffeeorder.model;
 
 public class Mocha extends CondimentDecorator{
     public Mocha(Beverage beverage) {

@@ -1,8 +1,8 @@
-package edu.iu.habahram.coffeeorder.controllers;
+package edu.iu.stffrenc.coffeeorder.controllers;
 
-import edu.iu.habahram.coffeeorder.model.OrderData;
-import edu.iu.habahram.coffeeorder.model.Receipt;
-import edu.iu.habahram.coffeeorder.repository.OrderRepository;
+import edu.iu.stffrenc.coffeeorder.model.OrderData;
+import edu.iu.stffrenc.coffeeorder.model.Receipt;
+import edu.iu.stffrenc.coffeeorder.repository.OrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
