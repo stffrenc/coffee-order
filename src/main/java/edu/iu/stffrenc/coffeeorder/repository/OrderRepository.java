@@ -3,9 +3,15 @@ package edu.iu.stffrenc.coffeeorder.repository;
 import edu.iu.stffrenc.coffeeorder.model.*;
 import org.springframework.stereotype.Repository;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
 @Repository
 public class OrderRepository {
+    private static final String DATABASE_FILE = "db.txt";
     public Receipt add(OrderData order) throws Exception {
+        Random rand = new Random();
         Beverage beverage = null;
         switch (order.beverage().toLowerCase()) {
             case "dark roast":
@@ -16,6 +22,9 @@ public class OrderRepository {
                 break;
             case "espresso":
                 beverage = new Espresso();
+                break;
+            case "decaf":
+                beverage = new Decaf();
                 break;
         }
         if (beverage == null) {
@@ -39,7 +48,16 @@ public class OrderRepository {
                     throw new Exception("Condiment type '%s' is not valid".formatted(condiment));
             }
         }
-        Receipt receipt = new Receipt(beverage.getDescription(), beverage.cost());
+        int id = rand.nextInt(1000) + 1;
+        Receipt receipt = new Receipt(id ,beverage.getDescription(), beverage.cost());
+        try (FileWriter writer = new FileWriter(DATABASE_FILE, true)) {
+            // Append the guitar information to the file
+            writer.write(id + ", " + beverage.getDescription() + ", " + beverage.cost() + "\n");
+            System.out.println("Guitar added to the database.");
+        } catch (IOException e) {
+            System.out.println("Error writing to the database file.");
+            e.printStackTrace();
+        }
         return receipt;
     }
 }
