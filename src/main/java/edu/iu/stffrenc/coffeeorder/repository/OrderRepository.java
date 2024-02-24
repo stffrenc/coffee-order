@@ -51,9 +51,9 @@ public class OrderRepository {
         int id = rand.nextInt(1000) + 1;
         Receipt receipt = new Receipt(id ,beverage.getDescription(), beverage.cost());
         try (FileWriter writer = new FileWriter(DATABASE_FILE, true)) {
-            // Append the guitar information to the file
+            // Append the beverage information to the file
             writer.write(id + ", " + beverage.getDescription() + ", " + beverage.cost() + "\n");
-            System.out.println("Guitar added to the database.");
+            System.out.println("Beverage added to the database.");
         } catch (IOException e) {
             System.out.println("Error writing to the database file.");
             e.printStackTrace();
