@@ -3,7 +3,7 @@ services:
     image: postgres:alpine
     container_name: coffee-database
     ports:
-      - "6003:5434"
+      - "6002:5432"
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: password

@@ -2,6 +2,7 @@ package edu.iu.stffrenc.coffeeorder.controllers;
 
 import edu.iu.stffrenc.coffeeorder.model.OrderData;
 import edu.iu.stffrenc.coffeeorder.model.Receipt;
+import edu.iu.stffrenc.coffeeorder.repository.OrderFileRepository;
 import edu.iu.stffrenc.coffeeorder.repository.OrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,8 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<?> add(@RequestBody OrderData order) {
         try {
-            Receipt receipt = orderRepository.add(order);
+            orderRepository.save(order);
+            Receipt receipt = OrderFileRepository.add(order);
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(receipt);

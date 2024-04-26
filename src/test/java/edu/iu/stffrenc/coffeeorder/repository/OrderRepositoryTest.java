@@ -11,11 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderRepositoryTest {
 
-    private OrderRepository repository;
+    private OrderFileRepository repository;
+    private OrderRepository orderRepository;
 
     @BeforeEach
     void setUp(){
-        repository = new OrderRepository();
+        repository = new OrderFileRepository();
+
+
     }
     @Test
     void add1() throws Exception {
