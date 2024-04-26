@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-colrlgol5elc73bocuv0-a.oregon-postgres.render.com/coffee_hyxa
-    username: coffee_hyxa_user
-    password: iZSLfMYHcadmFjaZmDOyKJpAwV0Vu39i
+    url: jdbc:postgresql://${database_host}/${database_name}
+    username: ${database_username}
+    password: ${database_password}
 
   jpa:
     hibernate:
