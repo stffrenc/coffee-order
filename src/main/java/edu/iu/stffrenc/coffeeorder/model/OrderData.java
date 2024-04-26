@@ -1,9 +1,7 @@
 package edu.iu.stffrenc.coffeeorder.model;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.*;
 import java.lang.Math;
 
@@ -14,7 +12,9 @@ public final class OrderData {
     @Id
     private int orderId;
     private String beverage;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "order_condiments", joinColumns = @JoinColumn(name = "order_id"))
+    @Column(name = "condiment")
     private List<String> condiments;
 
     public OrderData() {}
